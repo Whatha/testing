@@ -1,0 +1,152 @@
+.contenedor{
+  width: 100%;
+  height: 500px;
+  margin: auto;
+      -webkit-transform: translate(-2%, 10%);
+          transform: translate(-2%, 10%);
+}
+
+.contenedor ul li {
+  list-style-type: none;
+  
+}
+
+.slider--teams {
+  margin-top: 150px;
+  position: relative;
+  opacity: 0;
+  width: 1000px;
+
+}
+.slider--teams .slider--teams__team {
+  position: relative;
+}
+
+#list {
+  position: relative;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+#list li {
+    margin-top: 20px;
+
+  position: relative;
+  display: inline-block;
+  float: left;
+  text-align: center;
+}
+#list li figure {
+
+  cursor: pointer;
+  margin: 1em;
+  opacity: 0.5;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 450ms ease-in-out, -webkit-transform 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: opacity 450ms ease-in-out, -webkit-transform 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: transform 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 450ms ease-in-out;
+  transition: transform 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 450ms ease-in-out, -webkit-transform 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transform: scale(0.5) translateZ(0px);
+          transform: scale(0.5) translateZ(0px);
+}
+#list li figure:hover {
+
+  opacity: 0.8;
+  -webkit-transform: scale(0.6) translateZ(0px);
+          transform: scale(0.6) translateZ(0px);
+}
+#list li figure:active {
+  opacity: 1;
+  -webkit-transform: scale(0.7) translateZ(10px);
+          transform: scale(0.7) translateZ(10px);
+}
+#list li figure > div {
+
+  border-radius: 5px;
+  position: relative;
+  margin: 2rem auto;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  -webkit-transform: rotate(45deg) translateZ(0px);
+          transform: rotate(45deg) translateZ(0px);
+    box-shadow: 0px 0px 20px 1px #4BDB7D;
+
+}
+#list li figure > div > div {
+  background: url(../images/fondo.png) no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 230px;
+  height: 230px;
+  -webkit-transform: rotate(-45deg) translate(0%, -70%);
+          transform: rotate(-45deg) translate(0%, -70%);
+}
+#list li figure figcaption{
+
+}
+#list li figure figcaption h2 {
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+
+  font-size: 1.5rem;
+  font-weight: 800;            
+
+}
+#list li figure figcaption p {
+  margin-top: -20px;
+  color: #F2F2F2;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+figcaption a{
+  text-decoration: none;
+}
+#list li:nth-child(1) figure > div > div {
+    background: url(../images/w.png) no-repeat center center;
+  background-size: cover;
+}
+#list li:nth-child(2) figure > div > div {
+    background: url(../images/x3M.png) no-repeat center center;
+  background-size: cover;
+}
+#list li:nth-child(3) figure > div > div {
+    background: url(../images/squidward.png) no-repeat center center;
+  background-size: cover;
+}
+#list li:nth-child(4) figure > div > div {
+    background: url(../images/hou.png) no-repeat center center;
+  background-size: cover;
+}
+#list li:nth-child(5) figure > div > div {
+    background: url(../images/gaceta.png) no-repeat center center;
+  background-size: cover;
+}
+#list li:nth-child(6) figure > div > div {
+    background: url(../images/fuckd.png) no-repeat center center;
+  background-size: cover;
+}
+.active {
+  opacity: 1 !important;
+  -webkit-transform: scale(1) translateZ(0px) !important;
+          transform: scale(1) translateZ(0px) !important;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}

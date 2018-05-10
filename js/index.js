@@ -1,293 +1,86 @@
-var moveForce = 15; // max popup movement in pixels
-var rotateForce = 15; // max popup rotation in deg
 
-$(document).mousemove(function(e) {
-    var docX = $(document).width();
-    var docY = $(document).height();
-    
-    var moveX = (e.pageX - docX/2) / (docX/2) * -moveForce;
-    var moveY = (e.pageY - docY/2) / (docY/2) * -moveForce;
-    
-    var rotateY = (e.pageX / docX * rotateForce*2) - rotateForce;
-    var rotateX = -((e.pageY / docY * rotateForce*2) - rotateForce);
-    
-    $('.popup')
-        .css('left', moveX+'px')
-        .css('top', moveY+'px')
-        .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
+
+
+  $('.ml12').each(function(){
+  $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
 });
 
-var canvas = document.getElementById('nokey'),
-   can_w = parseInt(canvas.getAttribute('width')),
-   can_h = parseInt(canvas.getAttribute('height')),
-   ctx = canvas.getContext('2d');
-
-// console.log(typeof can_w);
-
-var ball = {
-      x: 0,
-      y: 0,
-      vx: 0,
-      vy: 0,
-      r: 0,
-      alpha: 1,
-      phase: 0
-   },
-   ball_color = {
-       r: 75,
-       g: 219,
-       b: 129
-   },
-   R = 2,
-   balls = [],
-   alpha_f = 0,
-   alpha_phase = 1,
-    
-// Line
-   link_line_width = .5,
-   dis_limit = 300,
-   add_mouse_point = true,
-   mouse_in = false,
-   mouse_ball = {
-      x: 0,
-      y: 0,
-      vx: 0,
-      vy: 0,
-      r: 0,
-      type: 'mouse'
-   };
-
-// Random speed
-function getRandomSpeed(pos){
-    var  min = -1,
-       max = 1;
-    switch(pos){
-        case 'top':
-            return [randomNumFrom(min, max), randomNumFrom(0.1, max)];
-            break;
-        case 'right':
-            return [randomNumFrom(min, -0.1), randomNumFrom(min, max)];
-            break;
-        case 'bottom':
-            return [randomNumFrom(min, max), randomNumFrom(min, -0.1)];
-            break;
-        case 'left':
-            return [randomNumFrom(0.1, max), randomNumFrom(min, max)];
-            break;
-        default:
-            return;
-            break;
+  anime.timeline({loop: false})
+  .add({
+    targets: '.clasesita',
+    translateX: [0,0],
+    translateZ: [70,0],
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 5000,
+    delay: function(el, i) {
+      return 500 + 30 * i;
     }
-}
-function randomArrayItem(arr){
-    return arr[Math.floor(Math.random() * arr.length)];
-}
-function randomNumFrom(min, max){
-    return Math.random()*(max - min) + min;
-}
-console.log(randomNumFrom(0, 10));
-// Random Ball
-function getRandomBall(){
-    var pos = randomArrayItem(['top', 'right', 'bottom', 'left']);
-    switch(pos){
-        case 'top':
-            return {
-                x: randomSidePos(can_w),
-                y: -R,
-                vx: getRandomSpeed('top')[0],
-                vy: getRandomSpeed('top')[1],
-                r: R,
-                alpha: 1,
-                phase: randomNumFrom(0, 10)
-            }
-            break;
-        case 'right':
-            return {
-                x: can_w + R,
-                y: randomSidePos(can_h),
-                vx: getRandomSpeed('right')[0],
-                vy: getRandomSpeed('right')[1],
-                r: R,
-                alpha: 1,
-                phase: randomNumFrom(0, 10)
-            }
-            break;
-        case 'bottom':
-            return {
-                x: randomSidePos(can_w),
-                y: can_h + R,
-                vx: getRandomSpeed('bottom')[0],
-                vy: getRandomSpeed('bottom')[1],
-                r: R,
-                alpha: 1,
-                phase: randomNumFrom(0, 10)
-            }
-            break;
-        case 'left':
-            return {
-                x: -R,
-                y: randomSidePos(can_h),
-                vx: getRandomSpeed('left')[0],
-                vy: getRandomSpeed('left')[1],
-                r: R,
-                alpha: 1,
-                phase: randomNumFrom(0, 10)
-            }
-            break;
+  });
+
+
+
+
+anime.timeline({loop: false})
+  .add({
+    targets: '.ml12 .letter',
+    translateX: [40,0],
+    translateZ: 0,
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 3000,
+    delay: function(el, i) {
+      return 500 + 80 * i;
     }
-}
-function randomSidePos(length){
-    return Math.ceil(Math.random() * length);
+  });
+
+
+function loadingBarAnimation() {
+   //loadingBar is the #cd-loading-bar element
+   //scaleY is the loadingBar actual scale value
+   var scaleMax = loadingBar.data('scale'); //this is the scaleY value to cover the entire window height (100% loaded)
+   if( scaleY + 1 < scaleMax) {
+      newScaleValue = scaleY + 1;
+   } 
+   // ...
+  
+   loadingBar.velocity({
+      scaleY: newScaleValue
+      }, 100, loadingBarAnimation
+   );
 }
 
-// Draw Ball
-function renderBalls(){
-    Array.prototype.forEach.call(balls, function(b){
-       if(!b.hasOwnProperty('type')){
-           ctx.fillStyle = 'rgba('+ball_color.r+','+ball_color.g+','+ball_color.b+','+b.alpha+')';
-           ctx.beginPath();
-           ctx.arc(b.x, b.y, R, 0, Math.PI*2, true);
-           ctx.closePath();
-           ctx.fill();
-       }
+function loadNewContent(newSection) {
+   //create a new section element and insert it into the DOM (newSection is the data-menu of the selected navigation item)
+   var section = $('<section class="cd-section overflow-hidden '+newSection+'"></section>').appendTo(mainContent);
+  
+   //load the new content from the proper html file
+   section.load(newSection+'.html .cd-section > *', function(event){   
+      loadingBar.velocity({
+         scaleY: scaleMax //this is the scaleY value to cover the entire window height (100% loaded)
+         }, 400, function(){
+            //add the .visible class to the new section element -> it will cover the old one
+            section.addClass('visible');
+
+            var url = newSection+'.html';
+
+            if(url!=window.location){
+               //add the new page to the window.history
+               window.history.pushState({path: url},'',url);
+            }
+
+            // ...
+         }
+      );
+   });
+}
+
+$(document).ready(function(){
+    $("ul.nav li a[href^='#']").click(function(){
+        $("html, body").stop().animate({
+            scrollTop: $($(this).attr("href")).offset().top
+        }, 1000);
     });
-}
-
-// Update balls
-function updateBalls(){
-    var new_balls = [];
-    Array.prototype.forEach.call(balls, function(b){
-        b.x += b.vx;
-        b.y += b.vy;
-        
-        if(b.x > -(50) && b.x < (can_w+50) && b.y > -(50) && b.y < (can_h+50)){
-           new_balls.push(b);
-        }
-        
-        // alpha change
-        b.phase += alpha_f;
-        b.alpha = Math.abs(Math.cos(b.phase));
-        // console.log(b.alpha);
-    });
-    
-    balls = new_balls.slice(0);
-}
-
-// loop alpha
-function loopAlphaInf(){
-    
-}
-
-// Draw lines
-function renderLines(){
-    var fraction, alpha;
-    for (var i = 0; i < balls.length; i++) {
-        for (var j = i + 1; j < balls.length; j++) {
-           
-           fraction = getDisOf(balls[i], balls[j]) / dis_limit;
-            
-           if(fraction < 1){
-               alpha = (1 - fraction).toString();
-
-               ctx.strokeStyle = 'rgba(75,219,125,'+alpha/2+')';
-               ctx.lineWidth = link_line_width;
-               
-               ctx.beginPath();
-               ctx.moveTo(balls[i].x, balls[i].y);
-               ctx.lineTo(balls[j].x, balls[j].y);
-               ctx.stroke();
-               ctx.closePath();
-           }
-        }
-    }
-}
-
-// calculate distance between two points
-function getDisOf(b1, b2){
-    var  delta_x = Math.abs(b1.x - b2.x),
-       delta_y = Math.abs(b1.y - b2.y);
-    
-    return Math.sqrt(delta_x*delta_x + delta_y*delta_y);
-}
-
-var ball_qty=50;
-// add balls if there a little balls
-function addBallIfy(){
-    if(balls.length < ball_qty){
-        balls.push(getRandomBall());
-    }
-}
-
-// Render
-function render(){
-    ctx.clearRect(0, 0, can_w, can_h);
-    
-    renderBalls();
-    
-    renderLines();
-    
-    updateBalls();
-    
-    addBallIfy();
-    
-    window.requestAnimationFrame(render);
-}
-
-// Init Balls
-function initBalls(num){
-    for(var i = 1; i <= num; i++){
-        balls.push({
-            x: randomSidePos(can_w),
-            y: randomSidePos(can_h),
-            vx: getRandomSpeed('top')[0],
-            vy: getRandomSpeed('top')[1],
-            r: R,
-            alpha: 1,
-            phase: randomNumFrom(0, 10)
-        });
-    }
-}
-// Init Canvas
-function initCanvas(){
-    canvas.setAttribute('width', window.innerWidth);
-    canvas.setAttribute('height', window.innerHeight);
-    
-    can_w = parseInt(canvas.getAttribute('width'));
-    can_h = parseInt(canvas.getAttribute('height'));
-}
-window.addEventListener('resize', function(e){
-    console.log('Window Resize...');
-    initCanvas();
 });
 
-function goMovie(){
-    initCanvas();
-    initBalls(ball_qty);
-    window.requestAnimationFrame(render);
-}
-goMovie();
-
-// Mouse effect
-canvas.addEventListener('mouseenter', function(){
-    console.log('mouseenter');
-    mouse_in = true;
-    balls.push(mouse_ball);
-});
-canvas.addEventListener('mouseleave', function(){
-    console.log('mouseleave');
-    mouse_in = false;
-    var new_balls = [];
-    Array.prototype.forEach.call(balls, function(b){
-        if(!b.hasOwnProperty('type')){
-            new_balls.push(b);
-        }
-    });
-    balls = new_balls.slice(0);
-});
-canvas.addEventListener('mousemove', function(e){
-    var e = e || window.event;
-    mouse_ball.x = e.pageX;
-    mouse_ball.y = e.pageY;
-    // console.log(mouse_ball);
-});
 

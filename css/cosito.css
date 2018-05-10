@@ -1,0 +1,93 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,900);
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	font-family:'Lato', sans-serif !important;
+	font-size: 13pt !important;
+	font-weight: 300 !important;
+}
+
+.container-fluid {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+#myPageContent, section { 
+	height:100% !important; 
+	width:100% !important;
+}
+
+#aboutme { background-color: #D75BA2; }
+#contact { background-color: #E9AC40; }
+footer { 
+	background-color: #31353A;
+	color: #FFF;
+	text-align: right;
+	font-size: 10pt !important;
+	padding: 30px;
+}
+
+
+
+.myLogo { 
+	max-height: 20px;
+	height: 100%;
+	width: 151px;
+font-family: 'Fugaz One', cursive;
+	color: #FFF;
+}
+.myLogo span { color: #4BDB7D; font-weight:normal; 	font-family: 'Roboto Codensed', sans-serif;
+font-weight: 600; }
+
+.navbar {
+		font-weight: 300;
+	opacity: 0.9;
+	filter: Alpha(opacity=90); /* IE8 and earlier */
+}
+.navbar ul li { 
+			font-family: 'Roboto Codensed', sans-serif;
+
+	color: #FFF !important;
+	font-size: 13pt !important;
+}
+.navbar .active a, .nav a:focus {
+	color:#4BDB7D !important;
+	background-color: transparent !important;
+}
+
+/* Menu - Animação */
+.navbar-nav a::before, .navbar-nav a::after {
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+.navbar-nav a::before {
+	margin-right: 10px;
+	content: '[';
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+.navbar-nav a::after {
+	margin-left: 10px;
+	content: ']';
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+.navbar-nav a:hover, .navbar-nav a:hover::before, .navbar-nav a:hover::after, .navbar-nav a:focus::before, .navbar-nav a:focus::after {
+	color:#4BDB7D !important;
+	background-color: transparent !important;	
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
+}
+

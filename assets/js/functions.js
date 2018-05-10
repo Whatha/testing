@@ -63,7 +63,7 @@ $( document ).ready(function() {
 
   });
 
- 
+
 
   // swipe support for touch devices
   var targetElement = document.getElementById('viewport'),
@@ -151,6 +151,12 @@ $( document ).ready(function() {
       $('.header--cta').removeClass('is-active');
     }
 
+ if (nextPos !== 0 && nextPos !== lastItem) {
+      $('.myLogo').addClass('activar');
+    }
+    else {
+      $('.myLogo').removeClass('activar');
+    }
   }
 
   function outerNav() {

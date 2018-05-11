@@ -85,7 +85,61 @@ $(document).ready(function(){
 
 
 
-   $("#demo01").animatedModal();
+  $("#demo01").animatedModal({
+                modalTarget:'animatedModal',
+                animatedIn:'slideInRight',
+                animatedOut:'slideOutRight',
+                color:'#3498db'
+            });
+   $(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});
+$("#demo02").animatedModal({
+                modalTarget:'animatedModal2',
+                animatedIn:'slideInRight',
+                animatedOut:'slideOutRight',
+                color:'#3498db'
+            });
+   $(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});
+
+$("#demo03").animatedModal({
+                modalTarget:'animatedModal3',
+                animatedIn:'slideInRight',
+                animatedOut:'slideOutRight',
+                color:'#3498db'
+            });
+   $(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});
+
+$("#demo04").animatedModal({
+                modalTarget:'animatedModal4',
+                animatedIn:'slideInRight',
+                animatedOut:'slideOutRight',
+                color:'#3498db'
+            });
+   $(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});
+
+$("#demo05").animatedModal({
+                modalTarget:'animatedModal5',
+                animatedIn:'slideInRight',
+                animatedOut:'slideOutRight',
+                color:'#3498db'
+            });
+   $(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});
+
+$("#demo06").animatedModal({
+                modalTarget:'animatedModal6',
+                animatedIn:'slideInRight',
+                animatedOut:'slideOutRight',
+                color:'#3498db'
+            });
    $(document).ready(function() {
   $('.image-link').magnificPopup({type:'image'});
 });

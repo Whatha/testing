@@ -569,7 +569,7 @@ h3{
   width: 100%;
   height: 100%;
 }
-.close-animatedModal{
+.modal_closers{
     width: 100%;
   cursor: pointer;
     font-family: 'Roboto Condensed', sans-serif;
@@ -581,7 +581,7 @@ h3{
     transition: all 0.5s ease-in-out;
 color: white;
 }
-.close-animatedModal:hover{
+.modal_closers:hover{
   background-color: #652CB5;
   transition: all 0.5s ease-in-out;
 }
@@ -611,12 +611,14 @@ color: white;
 .info_proyect h1{
     font-size: 4em;
     font-weight: 600;
-    
+      font-family: 'Fugaz One', cursive;
+
 }
 .info_proyect h3{
     font-weight: 300;
-    margin-top: -60px;
-    font-size: 2em;
+    margin-top: -50px;
+    font-size: 1.4em;
+    letter-spacing: 0.3em;
 }
 .info_proyect p{
     font-weight: 300;
@@ -652,13 +654,13 @@ background-position: 50% 50%;
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: .5s ease;
-  background-color: rgba(75,219,125,0.4);
+  transition: .7s ease;
+  background-color: rgba(75,219,125,0.7);
 }
 
 .images .text {
   color: white;
-  font-size: 20px;
+  font-size: 3em;
   position: relative;
   margin: 0 auto;
       top: 50%;
@@ -666,6 +668,8 @@ background-position: 50% 50%;
       transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
   text-align: center;
+  font-family: 'Fugaz One', cursive;
+
 }
 .image_container a{
       text-decoration: none;
@@ -673,4 +677,9 @@ background-position: 50% 50%;
 }
 .imagen:hover .overlay {
   opacity: 1;
+}
+
+.concept{
+    width: 90%;
+    margin-top: 20px;
 }

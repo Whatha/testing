@@ -13,8 +13,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
-
-
+ <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
       <link rel="stylesheet" href="css/carousel.css">
       <link rel="stylesheet" href="css/style.css">
 
@@ -44,12 +44,11 @@
         </header>
         <nav class="l-side-nav">
           <ul class="side-nav">
-            <li class="is-active"><span>Home</span></li>
-            <li><span>Works</span></li>
-            <li><span>About</span></li>
-            <li><span>My History</span></li>
-            <li><span>Skills</span></li>
-            <li><span>Contact</span></li>
+            <li class="is-active"><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
           </ul>
         </nav>
         <ul class="l-main-content main-content">
@@ -78,7 +77,10 @@
                     <figcaption>
                       <h2>Whatha Branding</h2>
                       <p>Whatha is a Personal Branding project that I made for myself.</p>
-                    <a href="index.html"><button class="boton btn-2"> See more</button></a>
+                    <a id="demo01" href="#animatedModal"><button class="boton btn-2"> See more</button></a>
+
+
+                   
                     </figcaption>
                   </figure>
                  
@@ -176,9 +178,6 @@
           <li class="l-section section">
             
           </li>
-          <li class="l-section section">
-            
-          </li>
           <li id="vente" class="l-section section">
           
           </li>
@@ -191,18 +190,31 @@
     <li class="is-active">Home</li>
     <li>Works</li>
     <li>About</li>
-    <li>My history</li>
     <li>Skills</li>
     <li>Contact</li>
   </ul>
 </div>
+
+                              <div id="animatedModal">
+                                 <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+                                <div  id="btn-close-modal" class="close-animatedModal"> 
+                                    Close Project
+                                </div>
+                                    
+                                <div class="modal-content">
+                                    <!--Your modal content goes here-->
+
+                                </div>
+                            </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="assets/js/functions-min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js'></script>
+        <script src="js/animatedModal.min.js"></script>
 
    <script src="js/carousel.js"></script>
 

@@ -563,4 +563,23 @@ font-weight: 300; }
 h3{
     font-weight: 300;
 }
-
+.modal-content{
+  position: fixed;
+  background-color: white;
+}
+.close-animatedModal{
+    width: 100%;
+  cursor: pointer;
+    font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.3em;
+   background-color: #4BDB7D;
+    transition: all 0.5s ease-in-out;
+color: white;
+}
+.close-animatedModal:hover{
+  background-color: #652CB5;
+  transition: all 0.5s ease-in-out;
+}

@@ -153,3 +153,11 @@ $("#demo06").animatedModal({
   type: 'iframe'
   // other options
 });
+
+    $("#flip").click(function(e){
+    e.preventDefault();
+        $("#panel").slideToggle();
+         $('html, body').animate({
+        scrollTop: 10000
+    }, 2500);
+    });

@@ -843,15 +843,8 @@ footer ul {
   width: 80%;
   padding: 0 10% 0 10%;
 }
-footer li a:visited {
-  fill: #EFEFEF;
-    transition: all .3s ease-in-out;
 
-}
-footer li:hover a:visited {
-    fill: #4BDB7D;
-}
-footer li{
+footer li , footer li a:visited {
   display: inline-block;
   width: 3%;
   position: relative;
@@ -862,7 +855,7 @@ footer li{
 }
 
 
-footer li:hover {
+footer li:hover, footer li:hover a:visited {
   fill: #4BDB7D;
 }
 
